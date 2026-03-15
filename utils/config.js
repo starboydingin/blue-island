@@ -1,27 +1,25 @@
 const fs = require('fs');
+const path = require('path');
+
+const readData = (fileName) => {
+  const filePath = path.join(__dirname, '..', 'data', fileName);
+  return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+};
 
 const loadArtists = () => {
-  const fileBuffer = fs.readFileSync('data/artists.json', 'utf-8');
-  const artists = JSON.parse(fileBuffer);
-  return artists;
+  return readData('artists.json');
 };
 
 const loadAlbums = () => {
-  const fileBuffer = fs.readFileSync('data/album.json', 'utf-8');
-  const albums = JSON.parse(fileBuffer);
-  return albums;
+  return readData('album.json');
 };
 
 const loadSingles = () => {
-  const fileBuffer = fs.readFileSync('data/singles.json', 'utf-8');
-  const singles = JSON.parse(fileBuffer);
-  return singles;
+  return readData('singles.json');
 };
 
 const loadTeam = () => {
-  const fileBuffer = fs.readFileSync('data/team.json', 'utf-8');
-  const team = JSON.parse(fileBuffer);
-  return team;
+  return readData('team.json');
 };
 
 const findArtist = (username) => {

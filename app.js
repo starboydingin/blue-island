@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const app = express();
 const expressLayouts = require('express-ejs-layouts');
 
@@ -6,7 +7,7 @@ const { loadArtists, loadSingles, loadAlbums, loadTeam, findArtist, findAlbum, f
 
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 app.set('layout', 'layouts/main-layout');
 
 app.get('/', (req, res) => {
@@ -146,6 +147,11 @@ app.get('/talent/:username', (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log(`Server Running Port ${3000}`);
-});
+if (process.env.VERCEL !== '1') {
+  const port = process.env.PORT || 3000;
+  app.listen(port, () => {
+    console.log(`Server Running Port ${port}`);
+  });
+}
+
+module.exports = app;
