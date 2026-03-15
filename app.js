@@ -6,6 +6,7 @@ const expressLayouts = require('express-ejs-layouts');
 const { loadArtists, loadSingles, loadAlbums, loadTeam, findArtist, findAlbum, findsingle } = require('./utils/config');
 
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 app.use(expressLayouts);
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('layout', 'layouts/main-layout');
@@ -134,6 +135,14 @@ app.get('/about', (req, res) => {
 
 app.get('/talent/:username', (req, res) => {
   const artist = findArtist(req.params.username);
+  if (!artist) {
+    return res.status(404).render('contact', {
+      title: 'Blue Island - Not Found',
+      layout: 'layouts/main-layout',
+      interactive: 'contact',
+    });
+  }
+
   const album = findAlbum(artist.id);
   const single = findsingle(artist.id);
 
@@ -147,7 +156,12 @@ app.get('/talent/:username', (req, res) => {
   });
 });
 
-if (process.env.VERCEL !== '1') {
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).send('Internal Server Error');
+});
+
+if (require.main === module) {
   const port = process.env.PORT || 3000;
   app.listen(port, () => {
     console.log(`Server Running Port ${port}`);
