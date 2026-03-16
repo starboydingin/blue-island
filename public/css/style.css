@@ -139,6 +139,140 @@ header.scrolled :is(.logo, .nav-links a) {
   text-decoration: underline;
 }
 
+/* ============================================
+   HAMBURGER MENU
+   ============================================ */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 2rem;
+  height: 1.4rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 100;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: var(--white);
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+header.scrolled .hamburger span {
+  background-color: var(--black);
+}
+
+.hamburger.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 97;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.nav-overlay.open {
+  opacity: 1;
+}
+
+/* ============================================
+   RESPONSIVE BREAKPOINTS
+   ============================================ */
+
+@media (max-width: 1024px) {
+  header {
+    padding: 1rem 5%;
+  }
+
+  .footer {
+    padding: 3rem 5%;
+    gap: 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-overlay {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    max-width: 320px;
+    height: 100vh;
+    background-color: var(--white);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    transition: right 0.3s ease;
+    z-index: 98;
+    box-shadow: -2px 0 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .nav-links.open {
+    right: 0;
+  }
+
+  .nav-links a {
+    color: var(--black) !important;
+    font-size: 1.4rem;
+    font-weight: 600 !important;
+  }
+
+  .footer {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3rem 5%;
+    padding-bottom: 4rem;
+  }
+
+  .footer-content-area {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  :is(.footer-links, .footer-policy) ul {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo a {
+    font-size: 1.4rem;
+  }
+
+  .footer {
+    padding: 2rem 5%;
+    padding-bottom: 3rem;
+  }
+}
+
 /* 
 @keyframes slide {
   0% {

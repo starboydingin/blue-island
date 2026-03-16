@@ -14,6 +14,10 @@ header :is(.logo, .nav-links a) {
   color: var(--black);
 }
 
+header .hamburger span {
+  background-color: var(--black);
+}
+
 .nav-links a.music-nav {
   font-weight: 900;
 }
@@ -196,4 +200,54 @@ header :is(.logo, .nav-links a) {
   opacity: 0.4;
   pointer-events: none;
   cursor: default;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+  :is(.talents, .catalogues) {
+    margin: 0 5rem;
+  }
+
+  .catalogues-wrap {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  :is(.talents, .catalogues) {
+    margin: 0 1.5rem;
+  }
+
+  .talents .talents-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .talents .talents-img {
+    height: 15rem;
+  }
+
+  .catalogues-wrap {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .catalogues-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .catalogues-header form {
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .catalogues-wrap {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
 }

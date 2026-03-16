@@ -226,3 +226,92 @@
 .merch .merch-img img {
   object-fit: cover;
 }
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .motto {
+    margin: 0 5rem;
+    padding: 5rem 2rem;
+  }
+
+  .talents {
+    margin: 0 5rem;
+  }
+
+  .releases h3 {
+    margin: 0 5rem;
+  }
+
+  .releases-border {
+    margin: 0 5rem;
+    margin-bottom: 4rem;
+  }
+
+  .merch {
+    margin: 0 5rem;
+    margin-bottom: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .motto {
+    margin: 0 1.5rem;
+    padding: 4rem 1rem;
+  }
+
+  .motto h2 {
+    font-size: 2rem;
+  }
+
+  .talents {
+    margin: 0 1.5rem;
+  }
+
+  .talents h3 {
+    font-size: 1.8rem;
+  }
+
+  .talents .talents-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .releases h3 {
+    margin: 0 1.5rem;
+    font-size: 1.8rem;
+  }
+
+  .releases-border {
+    margin: 0 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .merch {
+    margin: 0 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .merch h3 {
+    font-size: 1.8rem;
+  }
+
+  .merch .merch-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .motto h2 {
+    font-size: 1.6rem;
+  }
+
+  .talents .talents-img {
+    height: 15rem;
+  }
+
+  .merch .merch-img {
+    height: 28rem;
+  }
+}

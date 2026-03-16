@@ -10,6 +10,10 @@ header :is(.logo, .nav-links a) {
   color: var(--black);
 }
 
+header .hamburger span {
+  background-color: var(--black);
+}
+
 .nav-links a.business-nav {
   font-weight: 900;
 }
@@ -126,4 +130,72 @@ main.business .intro p {
 .partners-img img {
   height: 8rem;
   opacity: 0.8;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+  main.business .intro {
+    margin: 0 10%;
+    margin-bottom: 4rem;
+  }
+
+  .wrap-content {
+    margin: 0 10%;
+  }
+}
+
+@media (max-width: 768px) {
+  main.business .intro {
+    margin: 0 5%;
+    margin-bottom: 4rem;
+  }
+
+  .wrap-content {
+    margin: 0 5%;
+  }
+
+  .wrap-img {
+    height: 20rem;
+  }
+
+  .border-partners {
+    margin: 2rem 5%;
+    margin-bottom: 3rem;
+    width: 90vw;
+  }
+
+  .partners {
+    margin: 0 5%;
+    width: 90vw;
+  }
+}
+
+@media (max-width: 480px) {
+  main.business .intro {
+    margin: 0 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .wrap-content {
+    margin: 0 1.5rem;
+  }
+
+  .wrap-img {
+    height: 15rem;
+  }
+
+  .wrap-img::before {
+    font-size: 1.8rem;
+  }
+
+  .partners-img img {
+    height: 5rem;
+  }
+
+  .partners-img {
+    gap: 2rem;
+  }
 }

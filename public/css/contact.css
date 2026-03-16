@@ -10,6 +10,10 @@ header :is(.logo, .nav-links a) {
   color: var(--black);
 }
 
+header .hamburger span {
+  background-color: var(--black);
+}
+
 .nav-links a.contact-nav {
   font-weight: 900;
 }
@@ -115,4 +119,49 @@ main.contact p {
 .contact-area .book-content a {
   font-size: 2.2rem;
   font-weight: 400;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  :is(.office-wrap, .contact-wrap) > div {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  :is(.office-wrap, .contact-wrap) > div h2 {
+    font-size: 1.8rem;
+  }
+
+  .office-wrap > div a {
+    font-size: 1.8rem;
+  }
+
+  .contact-area {
+    grid-template-areas:
+      'contact'
+      'partner'
+      'booking';
+    grid-template-columns: 1fr;
+  }
+
+  .contact-area .book-content a {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :is(.office-wrap, .contact-wrap) > div h2 {
+    font-size: 1.4rem;
+  }
+
+  .office-wrap > div a {
+    font-size: 1.4rem;
+  }
+
+  .contact-area .book-content a {
+    font-size: 1.4rem;
+  }
 }

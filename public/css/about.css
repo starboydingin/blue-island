@@ -10,6 +10,10 @@ header :is(.logo, .nav-links a) {
   color: var(--black);
 }
 
+header .hamburger span {
+  background-color: var(--black);
+}
+
 .nav-links a.about-nav {
   font-weight: 900;
 }
@@ -167,4 +171,44 @@ main.about .about-img img {
   font-size: 1.2rem;
   font-weight: 400;
   margin-top: 0.2rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .team-area {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  main.about :is(.about-wrap, .azure-wrap) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  main.about :is(.about-wrap, .azure-wrap, .team-wrap) h2 {
+    font-size: 1.8rem;
+  }
+
+  .team-area {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .menu-deskripsi {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-area {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  main.about .about-img {
+    height: 20rem;
+  }
 }
